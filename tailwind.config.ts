@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Domine', 'serif'],
+        serif: ['Domine', 'serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -46,6 +50,10 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        gradient: {
+          start: "hsl(var(--gradient-start))",
+          end: "hsl(var(--gradient-end))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
