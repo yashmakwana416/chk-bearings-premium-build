@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+
 import { Card, CardContent } from '@/components/ui/card';
-import { Shield, IndianRupee, Cog, CheckCircle, Factory, Zap, Award, Users, TrendingUp, ArrowRight, TramFront, Flame, Pickaxe, Anchor, Building2, Fan, Plane, Layers, Tractor, Hammer, Scissors, BrickWall, CarFront, Cpu } from 'lucide-react';
+import { Shield, IndianRupee, Cog, CheckCircle, Factory, Zap, Award, Users, TrendingUp, TramFront, Flame, Pickaxe, Anchor, Building2, Fan, Plane, Layers, Tractor, Hammer, Scissors, BrickWall, CarFront, Cpu } from 'lucide-react';
 
 import CardFlip from '@/components/ui/flip-card';
 import { CHKConnect } from '@/components/CHKConnect';
@@ -21,24 +20,6 @@ const advantages = [
         icon: Cog,
         title: 'Precision Engineering',
         description: 'Meticulously crafted using state-of-the-art technology and stringent quality control measures. Each bearing is manufactured to exact specifications, ensuring optimal efficiency, reduced friction, and enhanced load-bearing capacity. Our precision engineering guarantees perfect fit and seamless integration into your machinery.',
-    },
-];
-
-const products = [
-    {
-        name: 'Ball Bearings',
-        image: '/images/ball-bearing.png',
-        path: '/products',
-    },
-    {
-        name: 'Roller Bearings',
-        image: '/images/roller-bearing.png',
-        path: '/products',
-    },
-    {
-        name: 'Custom Solutions',
-        image: '/images/custom-bearing.png',
-        path: '/products',
     },
 ];
 

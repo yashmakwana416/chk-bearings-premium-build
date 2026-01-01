@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useAnimate } from 'framer-motion';
 import { HighlighterItem, HighlightGroup, Particles } from '@/components/ui/highlighter';
-import { Mail, Phone, MessageCircle } from 'lucide-react';
+import { Mail, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export function CHKConnect() {
