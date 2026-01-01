@@ -11,53 +11,41 @@ export function CHKConnect() {
     useEffect(() => {
         animate(
             [
-                // Start at Ball Bearings
-                ["#pointer", { left: 370, top: 60 }, { duration: 0 }],
+                // Start State (Ball Bearings - Top Right)
                 ["#ball-bearings", { opacity: 1 }, { duration: 0.3 }],
 
-                // Move to Roller Bearings
+                // Move to Roller Bearings (Top Left)
                 [
-                    "#pointer",
-                    { left: 40, top: 100 },
-                    { at: "+0.5", duration: 0.5, ease: "easeInOut" },
+                    "#ball-bearings", { opacity: 0.4 }, { duration: 0.3, delay: 1.5 }
                 ],
-                ["#ball-bearings", { opacity: 0.4 }, { at: "-0.3", duration: 0.1 }],
                 ["#roller-bearings", { opacity: 1 }, { duration: 0.3 }],
 
-                // Move to Mounted Bearings
+                // Move to Technical Support (Bottom Left)
                 [
-                    "#pointer",
-                    { left: 280, top: 145 },
-                    { at: "+0.5", duration: 0.5, ease: "easeInOut" },
+                    "#roller-bearings", { opacity: 0.4 }, { duration: 0.3, delay: 1.5 }
                 ],
-                ["#roller-bearings", { opacity: 0.4 }, { at: "-0.3", duration: 0.1 }],
-                ["#mounted-bearings", { opacity: 1 }, { duration: 0.3 }],
-
-                // Move to Technical Support
-                [
-                    "#pointer",
-                    { left: 60, top: 245 },
-                    { at: "+0.5", duration: 0.5, ease: "easeInOut" },
-                ],
-                ["#mounted-bearings", { opacity: 0.4 }, { at: "-0.3", duration: 0.1 }],
                 ["#technical-support", { opacity: 1 }, { duration: 0.3 }],
 
-                // Return to Ball Bearings
+                // Move to Mounted Bearings (Bottom Right)
                 [
-                    "#pointer",
-                    { left: 370, top: 60 },
-                    { at: "+0.5", duration: 0.5, ease: "easeInOut" },
+                    "#technical-support", { opacity: 0.4 }, { duration: 0.3, delay: 1.5 }
                 ],
-                ["#technical-support", { opacity: 0.4 }, { at: "-0.3", duration: 0.1 }],
+                ["#mounted-bearings", { opacity: 1 }, { duration: 0.3 }],
+
+                // Return to Ball Bearings (Top Right)
+                [
+                    "#mounted-bearings", { opacity: 0.4 }, { duration: 0.3, delay: 1.5 }
+                ],
+                ["#ball-bearings", { opacity: 1 }, { duration: 0.3 }],
             ],
             {
                 repeat: Number.POSITIVE_INFINITY,
-            },
+            }
         );
     }, [animate]);
 
     return (
-        <section className="relative mx-auto py-20 bg-gray-50">
+        <section className="relative mx-auto py-12 md:py-20 bg-gray-50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <HighlightGroup className="group h-full">
                     <div className="group/item h-full">
@@ -70,67 +58,54 @@ export function CHKConnect() {
                                     vy={-0.2}
                                 />
                                 <div className="flex justify-center">
-                                    <div className="flex h-full flex-col justify-center gap-10 p-8 md:py-16 md:px-12 md:flex-row">
+                                    <div className="flex h-full flex-col justify-center gap-6 p-6 md:p-8 lg:p-12 md:flex-row items-center">
 
                                         {/* Animated Icon Area */}
                                         <div
-                                            className="relative mx-auto h-[300px] w-[450px]"
+                                            className="relative mx-auto h-[300px] w-full max-w-[340px] md:max-w-none md:w-[450px] scale-90 sm:scale-100"
                                             ref={scope}
                                         >
                                             {/* Center Icon */}
-                                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                                                <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center">
-                                                    <div className="w-6 h-6 bg-white rounded-sm"></div>
+                                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                                                <div className="w-14 h-14 bg-gray-900 rounded-2xl flex items-center justify-center shadow-lg border-2 border-white/20">
+                                                    <img
+                                                        src="/chk-logo.png"
+                                                        alt="CHK Logo"
+                                                        className="w-8 h-8 object-contain brightness-0 invert"
+                                                    />
                                                 </div>
                                             </div>
 
                                             {/* Floating Service Tags */}
                                             <div
                                                 id="ball-bearings"
-                                                className="absolute top-12 right-8 rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-['TestDomaineDisplay'] font-medium text-gray-700 shadow-sm opacity-50"
+                                                className="absolute top-12 right-8 rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-['TestDomaineDisplay'] font-medium text-gray-700 shadow-sm opacity-50 backdrop-blur-sm"
                                             >
                                                 Ball Bearings
                                             </div>
 
                                             <div
                                                 id="roller-bearings"
-                                                className="absolute left-0 top-24 rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-['TestDomaineDisplay'] font-medium text-gray-700 shadow-sm opacity-50"
+                                                className="absolute left-0 top-24 rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-['TestDomaineDisplay'] font-medium text-gray-700 shadow-sm opacity-50 backdrop-blur-sm"
                                             >
                                                 Roller Bearings
                                             </div>
 
                                             <div
                                                 id="mounted-bearings"
-                                                className="absolute bottom-16 right-0 rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-['TestDomaineDisplay'] font-medium text-gray-700 shadow-sm opacity-50"
+                                                className="absolute bottom-16 right-0 rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-['TestDomaineDisplay'] font-medium text-gray-700 shadow-sm opacity-50 backdrop-blur-sm"
                                             >
                                                 Mounted Bearings
                                             </div>
 
                                             <div
                                                 id="technical-support"
-                                                className="absolute bottom-6 left-12 rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-['TestDomaineDisplay'] font-medium text-gray-700 shadow-sm opacity-50"
+                                                className="absolute bottom-6 left-12 rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-sm font-['TestDomaineDisplay'] font-medium text-gray-700 shadow-sm opacity-50 backdrop-blur-sm"
                                             >
                                                 Technical Support
                                             </div>
 
-                                            {/* Animated Cursor */}
-                                            <div id="pointer" className="absolute">
-                                                <svg
-                                                    width="16.8"
-                                                    height="18.2"
-                                                    viewBox="0 0 12 13"
-                                                    className="fill-red-500"
-                                                    stroke="white"
-                                                    strokeWidth="1"
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                    <path
-                                                        fillRule="evenodd"
-                                                        clipRule="evenodd"
-                                                        d="M12 5.50676L0 0L2.83818 13L6.30623 7.86537L12 5.50676V5.50676Z"
-                                                    />
-                                                </svg>
-                                            </div>
+
                                         </div>
 
                                         {/* Content Area */}
@@ -146,14 +121,14 @@ export function CHKConnect() {
 
                                             <div className="flex flex-wrap gap-3">
                                                 <Link to="/contact">
-                                                    <Button className="bg-gray-900 text-white hover:bg-gray-800 rounded-full px-6 py-6 h-auto font-['TestDomaineDisplay'] font-semibold transition-all duration-300">
+                                                    <Button className="bg-gray-900 text-white hover:bg-gray-800 rounded-full px-8 h-12 font-['TestDomaineDisplay'] font-semibold transition-all duration-300 shadow-sm hover:shadow-md">
                                                         Book a call
                                                     </Button>
                                                 </Link>
 
                                                 <a
                                                     href="mailto:contact@chkbearings.com"
-                                                    className="inline-flex items-center justify-center gap-2 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 rounded-full w-12 h-12 transition-all duration-300"
+                                                    className="inline-flex items-center justify-center gap-2 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 rounded-full w-12 h-12 transition-all duration-300 shadow-sm hover:shadow-md"
                                                 >
                                                     <Mail className="w-5 h-5" />
                                                 </a>
@@ -162,7 +137,7 @@ export function CHKConnect() {
                                                     href="https://wa.me/919876543210"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="inline-flex items-center justify-center gap-2 border border-green-300 bg-green-50 hover:bg-green-100 rounded-full w-12 h-12 transition-all duration-300"
+                                                    className="inline-flex items-center justify-center gap-2 border border-green-300 bg-green-50 hover:bg-green-100 rounded-full w-12 h-12 transition-all duration-300 shadow-sm hover:shadow-md"
                                                 >
                                                     <MessageCircle className="w-5 h-5 text-green-600" />
                                                 </a>

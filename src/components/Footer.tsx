@@ -42,9 +42,9 @@ export function Footer() {
         <footer className="bg-gray-50 border-t border-gray-200 pt-16 pb-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Main Footer Content */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-12 gap-x-8 mb-10 text-center md:text-left">
                     {/* Logo and Tagline */}
-                    <div className="lg:col-span-1 flex flex-col items-center">
+                    <div className="lg:col-span-1 flex flex-col items-center md:items-start">
                         <Link to="/" className="flex items-center justify-center mb-2">
                             <img
                                 src="/chk-logo.png"

@@ -67,12 +67,12 @@ export function Contact() {
             </section>
 
             {/* Contact Form & Info Section */}
-            <section className="py-20 bg-gray-50">
+            <section className="py-12 md:py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
 
                         {/* Contact Form */}
-                        <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8 md:p-10">
+                        <div className="bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-sm border border-gray-100 p-6 md:p-8 md:p-10">
                             <h2 className="font-['TestDomaineDisplay'] text-2xl md:text-3xl font-semibold text-gray-900 mb-6">
                                 Send Us a Message
                             </h2>

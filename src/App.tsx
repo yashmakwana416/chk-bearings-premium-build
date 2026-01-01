@@ -6,6 +6,7 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { Products } from './pages/Products';
 import { ProductDetail } from './pages/ProductDetail';
+import { GetQuote } from './pages/GetQuote';
 import { WhyChk } from './pages/WhyChk';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="products" element={<Products />} />
           <Route path="products/:slug" element={<ProductDetail />} />
+          <Route path="quote" element={<GetQuote />} />
           <Route path="services" element={<WhyChk />} />
         </Route>
       </Routes>

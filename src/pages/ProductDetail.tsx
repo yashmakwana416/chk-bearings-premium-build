@@ -32,10 +32,10 @@ export function ProductDetail() {
     return (
         <div className="min-h-screen bg-gray-50 font-sans text-gray-900">
             {/* Hero Section - Luxurious & Compact for 100% Zoom */}
-            <section className="bg-gray-50 min-h-[700px] flex items-center relative overflow-hidden py-16">
+            <section className="bg-gray-50 min-h-[600px] md:min-h-[700px] flex items-center relative overflow-hidden py-12 md:py-16">
                 <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-4xl mx-auto">
-                        <div className="bg-white/60 backdrop-blur-xl rounded-[2.5rem] border border-white/20 shadow-2xl shadow-gray-900/5 p-8 md:p-12">
+                        <div className="bg-white/60 backdrop-blur-xl rounded-[2rem] md:rounded-[2.5rem] border border-white/20 shadow-2xl shadow-gray-900/5 p-6 md:p-12">
                             {/* Premium Badge */}
                             <div className="flex justify-center mb-5">
                                 <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-blue-600/10 text-primary px-5 py-2 rounded-full text-xs font-semibold border border-primary/20 shadow-sm">
@@ -45,7 +45,7 @@ export function ProductDetail() {
                             </div>
 
                             {/* Main Heading with Custom Font */}
-                            <h1 className="font-['TestDomaineDisplay'] text-3xl sm:text-4xl md:text-5xl font-bold mb-5 leading-[1.2] text-center text-gray-900 tracking-tight">
+                            <h1 className="font-['TestDomaineDisplay'] text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-5 leading-[1.2] text-center text-gray-900 tracking-tight">
                                 {product.hero.title}
                             </h1>
 
@@ -166,24 +166,7 @@ export function ProductDetail() {
                 </div>
             </section>
 
-            {/* Technical Specs */}
-            <section className="py-24 bg-gray-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="bg-white rounded-[2.5rem] shadow-lg border border-gray-100 overflow-hidden">
-                        <div className="p-10 md:p-16">
-                            <h2 className="font-['TestDomaineDisplay'] text-3xl md:text-4xl font-bold mb-12 text-gray-900">{product.technicalSpecs.title}</h2>
-                            <div className="grid md:grid-cols-2 gap-y-6 gap-x-16">
-                                {product.technicalSpecs.data.map((item, index) => (
-                                    <div key={index} className="flex justify-between items-center py-5 border-b border-gray-100 hover:bg-gray-50 px-4 -mx-4 rounded-xl transition-colors">
-                                        <span className="font-['TestDomaineDisplay'] text-lg font-medium text-gray-500">{item.label}</span>
-                                        <span className="font-['TestDomaineDisplay'] text-lg font-bold text-gray-900">{item.value}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* Applications */}
             <section className="py-24 bg-gray-50">
@@ -263,13 +246,13 @@ export function ProductDetail() {
             </section>
 
             {/* Final CTA */}
-            <section className="py-32 bg-gray-50 border-t border-gray-200">
+            <section className="py-20 md:py-32 bg-gray-50 border-t border-gray-200">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="font-['TestDomaineDisplay'] text-4xl md:text-5xl font-bold mb-8 text-gray-900 tracking-tight">Ready to Order Premium Bearings?</h2>
-                    <p className="font-['TestDomaineDisplay'] text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    <h2 className="font-['TestDomaineDisplay'] text-3xl md:text-4xl md:text-5xl font-bold mb-6 md:mb-8 text-gray-900 tracking-tight">Ready to Order Premium Bearings?</h2>
+                    <p className="font-['TestDomaineDisplay'] text-lg md:text-xl md:text-2xl text-gray-600 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed">
                         Contact us today for the best prices and instant delivery in Rajkot, Morbi, and Surat.
                     </p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-6">
+                    <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
                         <Button size="lg" className="font-['TestDomaineDisplay'] bg-primary hover:bg-blue-700 text-white rounded-full px-12 h-16 text-xl font-bold shadow-lg shadow-blue-500/20 transition-all hover:-translate-y-1">
                             <Phone className="mr-3 w-6 h-6" />
                             Call Now

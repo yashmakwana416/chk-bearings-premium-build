@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Shield, IndianRupee, Cog, CheckCircle, Factory, Zap, Award, Users, TrendingUp, ArrowRight, TramFront, Flame, Pickaxe, Anchor, Building2, Fan, Plane, Layers, Tractor, Hammer, Scissors, BrickWall, CarFront, Cpu } from 'lucide-react';
-import { AnimatedBearingHero } from '@/components/AnimatedBearingHero';
+
 import CardFlip from '@/components/ui/flip-card';
 import { CHKConnect } from '@/components/CHKConnect';
 
@@ -170,7 +170,7 @@ export function Home() {
     return (
         <div className="bg-white">
             {/* Hero Section */}
-            <section className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
+            <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
                 {/* Animated background grid */}
                 <div className="absolute inset-0 opacity-90">
                     <div className="absolute inset-0"
@@ -185,30 +185,33 @@ export function Home() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         {/* Text Content */}
                         <div className="text-white">
-                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-0 bg-gradient-to-bl from-white to-gray-400 bg-clip-text text-transparent tracking-tight leading-none" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
+                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-0 bg-gradient-to-bl from-white to-gray-400 bg-clip-text text-transparent tracking-tight leading-none" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
                                 Manufactured for
                             </h1>
-                            <h1 className="text-6xl md:text-7xl lg:text-8xl font-light mb-8 bg-gradient-to-bl from-white to-gray-400 bg-clip-text text-transparent tracking-tight leading-none" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
+                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light mb-8 bg-gradient-to-bl from-white to-gray-400 bg-clip-text text-transparent tracking-tight leading-none" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
                                 Endurance
                             </h1>
                             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-light" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
                                 Discover affordable, high-quality bearings built for performance and reliability.
                                 Experience precision engineering that powers your operations.
                             </p>
-                            <div className="flex flex-wrap gap-4">
-                                <Link to="/products">
-                                    <Button className="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 text-white rounded-full px-8 py-6 text-lg shadow-lg shadow-primary/25">
-                                        Explore Products
-                                    </Button>
-                                </Link>
-
-                            </div>
                         </div>
 
-                        {/* Animated Bearing Illustration */}
+                        {/* Video Content Placeholder */}
                         <div className="flex justify-center lg:justify-end">
-                            <div className="w-full max-w-sm">
-                                <AnimatedBearingHero />
+                            <div className="w-full max-w-lg aspect-video bg-gray-900/50 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm shadow-2xl flex items-center justify-center relative group">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10" />
+                                <div className="text-center p-6 relative z-10">
+
+                                </div>
+                                {<video
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    src="/CHKbearingsprocess.mp4"
+                                />}
                             </div>
                         </div>
                     </div>

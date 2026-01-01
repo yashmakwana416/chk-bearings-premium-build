@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 
 // Product data based on sitemap URLs
-const products = [
+export const products = [
     {
         id: 1,
         name: 'Roller Bearings',
@@ -146,7 +146,7 @@ export function Products() {
             {/* Hero Section - Centered */}
             <section className="relative bg-gray-50 overflow-hidden min-h-screen flex items-center justify-center">
                 {/* Centered Content Container */}
-                <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center space-y-8">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 text-center space-y-6 md:space-y-8">
 
                     {/* Eyebrow - Centered */}
                     <div className="flex items-center justify-center gap-3">
@@ -158,7 +158,7 @@ export function Products() {
                     </div>
 
                     {/* Hero Heading - Centered */}
-                    <h1 className="font-['TestDomaineDisplay'] text-[56px] lg:text-[72px] xl:text-[80px] font-semibold leading-[0.95] tracking-[-0.02em] text-gray-900">
+                    <h1 className="font-['TestDomaineDisplay'] text-4xl sm:text-5xl lg:text-[72px] xl:text-[80px] font-semibold leading-[0.95] tracking-[-0.02em] text-gray-900">
                         Premium Bearings
                     </h1>
 
