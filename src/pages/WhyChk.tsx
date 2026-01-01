@@ -116,7 +116,7 @@ export function WhyChk() {
                     </div>
 
                     <div className="space-y-20">
-                        {services.map((service, index) => (
+                        {services.map((service) => (
                             <div
                                 key={service.title}
                                 className={`flex flex-col ${service.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12`}

@@ -2,7 +2,7 @@ import { BookOpen, FileText, Video } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { Footer } from "@/components/Footer";
 
 const Resources = () => {
   const articles = [
