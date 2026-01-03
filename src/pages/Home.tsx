@@ -151,52 +151,17 @@ export function Home() {
     return (
         <div className="bg-white">
             {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-                {/* Animated background grid */}
-                <div className="absolute inset-0 opacity-90">
-                    <div className="absolute inset-0"
-                        style={{
-                            backgroundImage: `linear-gradient(to right, rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-                                   linear-gradient(to bottom, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
-                            backgroundSize: '40px 40px'
-                        }} />
-                </div>
-
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-26">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        {/* Text Content */}
-                        <div className="text-white">
-                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-light mb-0 bg-gradient-to-bl from-white to-gray-400 bg-clip-text text-transparent tracking-tight leading-none" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
-                                Manufactured for
-                            </h1>
-                            <h1 className="text-5xl md:text-7xl lg:text-8xl font-light mb-8 bg-gradient-to-bl from-white to-gray-400 bg-clip-text text-transparent tracking-tight leading-none" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
-                                Endurance
-                            </h1>
-                            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed font-light" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
-                                Discover affordable, high-quality bearings built for performance and reliability.
-                                Experience precision engineering that powers your operations.
-                            </p>
-                        </div>
-
-                        {/* Video Content Placeholder */}
-                        <div className="flex justify-center lg:justify-end">
-                            <div className="w-full max-w-lg aspect-video bg-gray-900/50 rounded-2xl overflow-hidden border border-white/10 backdrop-blur-sm shadow-2xl flex items-center justify-center relative group">
-                                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-purple-500/10" />
-                                <div className="text-center p-6 relative z-10">
-
-                                </div>
-                                {<video
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    src="/CHKbearingsprocess.mp4"
-                                />}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <section className="relative h-screen w-full overflow-hidden bg-black">
+                <video
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    src="/CHKbearingsprocess.mp4"
+                />
+                {/* Subtle overlay to ensure header visibility if needed, can be removed if strictly raw video is desired */}
+                <div className="absolute inset-0 bg-black/10" />
             </section>
 
             {/* CHK Advantage Section */}
