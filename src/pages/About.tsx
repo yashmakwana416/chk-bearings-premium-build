@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Target, Eye, Shield, Wallet, Users, ChevronDown, Award, Zap, TrendingUp, CheckCircle, Factory, Cog, Settings, Phone } from 'lucide-react';
+import { Target, Eye, Shield, Wallet, Users, ChevronDown } from 'lucide-react';
 import DatabaseWithRestApi from '@/components/ui/database-with-rest-api';
 import { AnimatedCard, CardBody, CardDescription, CardTitle, CardVisual, Visual3 } from '@/components/ui/animated-card-chart';
 
@@ -23,80 +23,6 @@ const coreValues = [
     },
 ];
 
-const whyChooseUs = [
-    {
-        icon: Award,
-        title: 'ISO Certified Quality',
-        description: 'Manufactured under ISO 9001:2015 standards, ensuring consistent excellence in every bearing we produce.',
-    },
-    {
-        icon: Zap,
-        title: 'Fast Delivery',
-        description: 'Strategically located warehouses and efficient logistics ensure rapid delivery across India and beyond.',
-    },
-    {
-        icon: CheckCircle,
-        title: 'Proven Reliability',
-        description: 'Trusted by leading industries nationwide with decades of experience and successful partnerships.',
-    },
-    {
-        icon: Settings,
-        title: 'Technical Expertise',
-        description: 'Our engineering team provides comprehensive support from product selection to installation and maintenance.',
-    },
-];
-
-const expertise = [
-    {
-        icon: Factory,
-        title: 'Manufacturing Excellence',
-        description: 'State-of-the-art facilities equipped with advanced machinery for precision manufacturing.',
-    },
-    {
-        icon: Cog,
-        title: 'Engineering Support',
-        description: 'Dedicated engineering team offering technical consultation and custom bearing solutions.',
-    },
-    {
-        icon: TrendingUp,
-        title: 'Continuous Innovation',
-        description: 'Ongoing research and development to stay ahead of industry trends and customer needs.',
-    },
-];
-
-const certifications = [
-    {
-        title: 'ISO 9001:2015',
-        description: 'Quality Management Systems',
-    },
-    {
-        title: 'Industry Standards',
-        description: 'Compliance with all major bearing industry standards',
-    },
-    {
-        title: 'Quality Tested',
-        description: '100% inspection and testing of all products',
-    },
-];
-
-const stats = [
-    {
-        number: '10,000+',
-        label: 'Satisfied Customers',
-    },
-    {
-        number: '50,000+',
-        label: 'Bearings Delivered',
-    },
-    {
-        number: '99.8%',
-        label: 'Quality Rating',
-    },
-    {
-        number: '24/7',
-        label: 'Customer Support',
-    },
-];
 
 // Performance Comparison Card Component
 function PerformanceComparisonCard() {
