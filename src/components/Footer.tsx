@@ -39,32 +39,31 @@ const socialLinks = [
 
 export function Footer() {
     return (
-        <footer className="bg-gray-50 border-t border-gray-200 pt-16 pb-8">
+        <footer className="bg-gray-50 border-t border-gray-200 pt-12 pb-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Main Footer Content */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-12 gap-x-8 mb-10 text-center md:text-left">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-10 text-center md:text-left">
                     {/* Logo and Tagline */}
-                    <div className="lg:col-span-1 flex flex-col items-center md:items-start">
-                        <Link to="/" className="flex items-center justify-center mb-2">
+                    <div className="col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-1 flex flex-col items-center md:items-start">
+                        <Link to="/" className="flex items-center justify-center mb-3">
                             <img
                                 src="/chk-logo.png"
                                 alt="CHK Bearings Logo"
-                                className="w-32 h-32 object-contain"
+                                className="w-20 h-20 md:w-24 md:h-24 object-contain"
                             />
                         </Link>
-
                         {/* Social Media Dock */}
-                        <div className="flex items-center justify-center gap-3">
+                        <div className="flex items-center justify-center gap-2">
                             {socialLinks.map((social) => (
                                 <a
                                     key={social.name}
                                     href={social.url}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className={`w-9 h-9 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-gray-600 transition-all duration-200 hover:scale-110 ${social.color}`}
+                                    className={`w-8 h-8 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-gray-600 transition-all duration-200 hover:scale-110 ${social.color}`}
                                     aria-label={social.name}
                                 >
-                                    <social.icon className="w-4 h-4" />
+                                    <social.icon className="w-3.5 h-3.5" />
                                 </a>
                             ))}
                         </div>
@@ -72,14 +71,13 @@ export function Footer() {
 
                     {/* Company Links */}
                     <div>
-                        <h4 className="text-sm font-semibold text-gray-900 mb-4" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>Company</h4>
+                        <h4 className="text-sm font-semibold text-gray-900 mb-4">Company</h4>
                         <ul className="space-y-3">
                             {companyLinks.map((link) => (
                                 <li key={link.name}>
                                     <Link
                                         to={link.path}
                                         className="text-sm text-gray-600 hover:text-primary transition-colors"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                                     >
                                         {link.name}
                                     </Link>
@@ -90,14 +88,13 @@ export function Footer() {
 
                     {/* Products Links */}
                     <div>
-                        <h4 className="text-sm font-semibold text-gray-900 mb-4" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>Products</h4>
+                        <h4 className="text-sm font-semibold text-gray-900 mb-4">Products</h4>
                         <ul className="space-y-3">
                             {productLinks.map((link) => (
                                 <li key={link.name}>
                                     <Link
                                         to={link.path}
                                         className="text-sm text-gray-600 hover:text-primary transition-colors"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                                     >
                                         {link.name}
                                     </Link>
@@ -108,14 +105,13 @@ export function Footer() {
 
                     {/* Resources Links */}
                     <div>
-                        <h4 className="text-sm font-semibold text-gray-900 mb-4" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>Resources</h4>
+                        <h4 className="text-sm font-semibold text-gray-900 mb-4">Resources</h4>
                         <ul className="space-y-3">
                             {resourceLinks.map((link) => (
                                 <li key={link.name}>
                                     <Link
                                         to={link.path}
                                         className="text-sm text-gray-600 hover:text-primary transition-colors"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                                     >
                                         {link.name}
                                     </Link>
@@ -126,14 +122,13 @@ export function Footer() {
 
                     {/* Support Links */}
                     <div>
-                        <h4 className="text-sm font-semibold text-gray-900 mb-4" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>Support</h4>
+                        <h4 className="text-sm font-semibold text-gray-900 mb-4">Support</h4>
                         <ul className="space-y-3">
                             {supportLinks.map((link) => (
                                 <li key={link.name}>
                                     <Link
                                         to={link.path}
                                         className="text-sm text-gray-600 hover:text-primary transition-colors"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                                     >
                                         {link.name}
                                     </Link>
@@ -145,17 +140,17 @@ export function Footer() {
 
                 {/* Copyright - Centered with border below */}
                 <div className="pt-8 pb-8 border-b border-gray-200">
-                    <p className="text-center text-sm text-gray-500" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
+                    <p className="text-center text-sm text-gray-500">
                         © {new Date().getFullYear()} CHK Bearings. All rights reserved.
                     </p>
                 </div>
 
                 {/* Large Fading Logo */}
-                <div className="relative py-6 flex items-center justify-center overflow-hidden">
+                <div className="relative py-4 flex items-center justify-center overflow-hidden">
                     <img
                         src="/chk-logo.png"
                         alt="CHK Bearings"
-                        className="w-full max-w-md md:max-w-lg lg:max-w-xl opacity-20 grayscale"
+                        className="w-full max-w-[200px] sm:max-w-xs md:max-w-sm lg:max-w-md opacity-20 grayscale"
                         style={{ filter: 'grayscale(100%)' }}
                     />
                 </div>
@@ -163,3 +158,4 @@ export function Footer() {
         </footer>
     );
 }
+

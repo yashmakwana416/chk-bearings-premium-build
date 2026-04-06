@@ -151,20 +151,20 @@ export function Products() {
                     {/* Eyebrow - Centered */}
                     <div className="flex items-center justify-center gap-3">
                         <div className="h-px w-12 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
-                        <span className="font-['TestDomaineDisplay'] text-[13px] font-medium tracking-[0.08em] text-gray-500 uppercase">
+                        <span className="text-[13px] font-medium tracking-[0.08em] text-gray-500 uppercase">
                             Industrial Grade
                         </span>
                         <div className="h-px w-12 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
                     </div>
 
                     {/* Hero Heading - Centered */}
-                    <h1 className="font-['TestDomaineDisplay'] text-4xl sm:text-5xl lg:text-[72px] xl:text-[80px] font-semibold leading-[0.95] tracking-[-0.02em] text-gray-900">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[72px] font-semibold leading-[0.95] tracking-[-0.02em] text-gray-900">
                         Premium Bearings
                     </h1>
 
 
                     {/* Subheading - Centered */}
-                    <p className="font-['TestDomaineDisplay'] text-[19px] lg:text-[21px] leading-[1.6] text-gray-600 max-w-[600px] mx-auto font-light">
+                    <p className="text-base sm:text-[17px] lg:text-[19px] leading-[1.6] text-gray-600 max-w-[600px] mx-auto font-light">
                         Precision-engineered bearing solutions for industrial applications across Rajkot, Surat, and Morbi.
                     </p>
 
@@ -176,7 +176,7 @@ export function Products() {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                             </div>
-                            <span className="font-['TestDomaineDisplay'] text-[14px] text-gray-700 font-medium">
+                            <span className="text-[14px] text-gray-700 font-medium">
                                 In Stock
                             </span>
                         </div>
@@ -188,7 +188,7 @@ export function Products() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            <span className="font-['TestDomaineDisplay'] text-[14px] text-gray-600">
+                            <span className="text-[14px] text-gray-600">
                                 Gujarat, India
                             </span>
                         </div>
@@ -196,7 +196,7 @@ export function Products() {
 
                     {/* Scroll Down Indicator */}
                     <div className="flex flex-col items-center gap-2 mt-12">
-                        <span className="font-['TestDomaineDisplay'] text-sm text-gray-600 font-medium">
+                        <span className="text-sm text-gray-600 font-medium">
                             Scroll down
                         </span>
                         <ChevronDown className="w-6 h-6 text-gray-600" />
@@ -225,7 +225,7 @@ export function Products() {
                     </div>
 
                     {/* Products Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                         {products.map((product, index) => (
                             <div
                                 key={product.id}
@@ -235,7 +235,7 @@ export function Products() {
                                 }}
                             >
                                 {/* Image Container - Enlarged */}
-                                <div className="relative bg-gray-50 h-72 flex items-center justify-center overflow-hidden">
+                                <div className="relative bg-gray-50 h-48 sm:h-56 md:h-64 flex items-center justify-center overflow-hidden">
                                     <img
                                         src={product.image}
                                         alt={`${product.name} - CHK Bearings`}
@@ -250,14 +250,14 @@ export function Products() {
                                         {product.category}
                                     </div>
 
-                                    <h3 className="font-['TestDomaineDisplay'] text-xl font-semibold text-gray-900 leading-tight">
+                                    <h3 className="text-xl font-semibold text-gray-900 leading-tight">
                                         {product.name}
                                     </h3>
 
                                     {/* CTA Button */}
                                     <Link
                                         to={`/products/${product.slug}`}
-                                        className="inline-flex items-center gap-2 text-primary font-['TestDomaineDisplay'] font-semibold text-[15px] group/btn pt-2"
+                                        className="inline-flex items-center gap-2 text-primary font-semibold text-[15px] group/btn pt-2"
                                         aria-label={`Learn more about ${product.name}`}
                                     >
                                         <span>Learn More</span>
@@ -279,19 +279,19 @@ export function Products() {
                             {/* Eyebrow */}
                             <div className="flex items-center justify-center gap-3 mb-6">
                                 <div className="h-px w-12 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
-                                <span className="font-['TestDomaineDisplay'] text-[13px] font-medium tracking-[0.08em] text-gray-500 uppercase">
+                                <span className="text-[13px] font-medium tracking-[0.08em] text-gray-500 uppercase">
                                     Need Help?
                                 </span>
                                 <div className="h-px w-12 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
                             </div>
 
                             {/* Heading */}
-                            <h2 className="font-['TestDomaineDisplay'] text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-4 leading-tight">
+                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-gray-900 mb-4 leading-tight">
                                 Can't Find What You're<br className="hidden sm:block" /> Looking For?
                             </h2>
 
                             {/* Description */}
-                            <p className="font-['TestDomaineDisplay'] text-[17px] md:text-[19px] text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                            <p className="text-[17px] md:text-[19px] text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
                                 Our team of experts is ready to help you find the perfect bearing solution for your specific needs.
                             </p>
 
@@ -299,7 +299,7 @@ export function Products() {
                             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                                 <Link
                                     to="/contact"
-                                    className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-['TestDomaineDisplay'] font-semibold hover:bg-blue-600 transition-all duration-300 hover:shadow-lg shadow-primary/20"
+                                    className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-600 transition-all duration-300 hover:shadow-lg shadow-primary/20"
                                 >
                                     Contact Our Team
                                     <ArrowRight className="w-5 h-5" />
@@ -307,7 +307,7 @@ export function Products() {
 
                                 <a
                                     href="tel:+919876543210"
-                                    className="inline-flex items-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-full font-['TestDomaineDisplay'] font-semibold border-2 border-gray-200 hover:border-primary hover:text-primary transition-all duration-300"
+                                    className="inline-flex items-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-full font-semibold border-2 border-gray-200 hover:border-primary hover:text-primary transition-all duration-300"
                                 >
                                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -340,3 +340,4 @@ export function Products() {
         </div>
     );
 }
+

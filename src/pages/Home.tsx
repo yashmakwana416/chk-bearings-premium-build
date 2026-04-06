@@ -4,6 +4,7 @@ import { Shield, IndianRupee, Cog, CheckCircle, Factory, Zap, Award, Users, Tren
 
 import CardFlip from '@/components/ui/flip-card';
 import { CHKConnect } from '@/components/CHKConnect';
+import { AnimatedBearingHero } from '@/components/AnimatedBearingHero';
 
 const advantages = [
     {
@@ -151,18 +152,7 @@ export function Home() {
     return (
         <div className="bg-white">
             {/* Hero Section */}
-            <section className="relative h-screen w-full overflow-hidden bg-black">
-                <video
-                    className="absolute inset-0 w-full h-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    src="/CHKbearingsprocess.mp4"
-                />
-                {/* Subtle overlay to ensure header visibility if needed, can be removed if strictly raw video is desired */}
-                <div className="absolute inset-0 bg-black/10" />
-            </section>
+            <AnimatedBearingHero />
 
             {/* CHK Advantage Section */}
             <section id="chk-advantage" className="py-12 md:py-16 lg:py-20 bg-gray-50">
@@ -171,13 +161,11 @@ export function Home() {
                     <div className="text-center mb-12 lg:mb-16">
                         <h2
                             className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             The CHK Advantage
                         </h2>
                         <p
                             className="text-sm md:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             We combine cutting-edge technology with rigorous quality control to deliver
                             premium bearings you can trust.
@@ -201,7 +189,6 @@ export function Home() {
                                     {/* Card Title */}
                                     <h3
                                         className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3 md:mb-4"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                                     >
                                         {advantage.title}
                                     </h3>
@@ -209,7 +196,6 @@ export function Home() {
                                     {/* Card Description */}
                                     <p
                                         className="text-gray-600 text-xs md:text-sm lg:text-base leading-relaxed"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                                     >
                                         {advantage.description}
                                     </p>
@@ -227,20 +213,18 @@ export function Home() {
                     <div className="text-center mb-12 lg:mb-16">
                         <h2
                             className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             Discover Our Capabilities
                         </h2>
                         <p
                             className="text-sm md:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             Hover over the cards to explore what makes CHK Bearings your ideal partner for industrial bearing solutions.
                         </p>
                     </div>
 
                     {/* Flip Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 justify-items-center">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12 justify-items-center">
                         <CardFlip
                             title="Premium Quality"
                             subtitle="Excellence in every bearing"
@@ -291,13 +275,11 @@ export function Home() {
                     <div className="text-center mb-12 lg:mb-16">
                         <h2
                             className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             Why Choose CHK Bearings
                         </h2>
                         <p
                             className="text-sm md:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             Your trusted partner for industrial bearing solutions. We deliver excellence through innovation, quality, and customer-focused service across India.
                         </p>
@@ -320,7 +302,6 @@ export function Home() {
                                     {/* Card Title */}
                                     <h3
                                         className="text-lg md:text-xl font-semibold text-gray-900 mb-3"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                                     >
                                         {reason.title}
                                     </h3>
@@ -328,7 +309,6 @@ export function Home() {
                                     {/* Card Description */}
                                     <p
                                         className="text-gray-600 text-xs md:text-sm leading-relaxed"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                                     >
                                         {reason.description}
                                     </p>
@@ -357,20 +337,18 @@ export function Home() {
                     <div className="text-center mb-12 lg:mb-16">
                         <h2
                             className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             Industries We Serve
                         </h2>
                         <p
                             className="text-sm md:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             From manufacturing plants to agricultural operations, CHK Bearings powers diverse industrial sectors with reliable, high-performance bearing solutions tailored to your specific needs.
                         </p>
                     </div>
 
-                    {/* Industries Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+                    {/* Industries Grid - 2 Rows (8 per row) */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2 md:gap-3">
                         {industries.map((industry, index) => (
                             <Card
                                 key={industry.title}
@@ -381,17 +359,11 @@ export function Home() {
                                     animationFillMode: 'forwards'
                                 }}
                             >
-                                <CardContent className="p-4 flex flex-col items-center justify-center text-center h-full">
-                                    {/* Icon Container */}
-                                    <div className="w-12 h-12 bg-primary/5 rounded-lg flex items-center justify-center mb-3 group-hover:bg-primary/10 transition-colors duration-300">
-                                        <industry.icon className="w-7 h-7 text-primary" aria-hidden="true" strokeWidth={1.5} />
+                                <CardContent className="p-2 md:p-3 flex flex-col items-center justify-center text-center h-full gap-1.5">
+                                    <div className="w-9 h-9 md:w-10 md:h-10 bg-primary/5 rounded-lg flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300 shrink-0">
+                                        <industry.icon className="w-5 h-5 text-primary" aria-hidden="true" strokeWidth={1.5} />
                                     </div>
-
-                                    {/* Industry Title */}
-                                    <h3
-                                        className="text-sm font-semibold text-gray-900"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
-                                    >
+                                    <h3 className="text-[0.65rem] md:text-xs font-semibold text-gray-900 leading-tight">
                                         {industry.title}
                                     </h3>
                                 </CardContent>
@@ -408,13 +380,11 @@ export function Home() {
                     <div className="text-center mb-12 lg:mb-16">
                         <h2
                             className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 md:mb-6"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             Our Quality Standards
                         </h2>
                         <p
                             className="text-sm md:text-base lg:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             Quality is not just a promise at CHK Bearings – it's our foundation. Every product meets stringent international standards, ensuring reliability and performance excellence.
                         </p>
@@ -437,7 +407,6 @@ export function Home() {
                                     {/* Standard Title */}
                                     <h3
                                         className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3 md:mb-4"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                                     >
                                         {standard.title}
                                     </h3>
@@ -445,7 +414,6 @@ export function Home() {
                                     {/* Standard Description */}
                                     <p
                                         className="text-gray-600 text-xs md:text-sm lg:text-base leading-relaxed"
-                                        style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                                     >
                                         {standard.description}
                                     </p>
@@ -461,3 +429,4 @@ export function Home() {
         </div>
     );
 }
+

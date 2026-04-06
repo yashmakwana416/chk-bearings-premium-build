@@ -34,16 +34,17 @@ const DatabaseWithRestApi = ({
     return (
         <div
             className={cn(
-                "relative flex h-[450px] w-full max-w-[650px] flex-col items-center",
+                "relative flex h-[400px] sm:h-[450px] w-full max-w-[650px] flex-col items-center px-4 sm:px-0",
                 className
             )}
         >
             {/* SVG Paths  */}
             <svg
-                className="h-full sm:w-full text-gray-400"
+                className="h-full w-full text-gray-400"
                 width="100%"
                 height="100%"
                 viewBox="0 0 200 100"
+                preserveAspectRatio="xMidYMid meet"
             >
                 <g
                     stroke="currentColor"
@@ -245,18 +246,18 @@ const DatabaseWithRestApi = ({
                 </defs>
             </svg>
             {/* Main Box */}
-            <div className="absolute bottom-16 flex w-full flex-col items-center">
+            <div className="absolute bottom-12 sm:bottom-16 flex w-full flex-col items-center">
                 {/* bottom shadow */}
-                <div className="absolute -bottom-2 h-[100px] w-[62%] rounded-lg bg-gray-200/50" />
+                <div className="absolute -bottom-2 h-[80px] sm:h-[100px] w-[62%] rounded-lg bg-gray-200/50" />
                 {/* box title */}
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center rounded-lg border border-gray-300 bg-white px-3 py-1.5 sm:-top-7 sm:py-2 shadow-sm">
-                    <SparklesIcon className="size-3 text-gray-700" />
-                    <span className="ml-2 text-xs text-gray-700 font-medium">
+                <div className="absolute -top-5 sm:-top-6 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center rounded-lg border border-gray-300 bg-white px-2 sm:px-3 py-1 sm:py-1.5 shadow-sm max-w-[90%]">
+                    <SparklesIcon className="size-3 flex-shrink-0 text-gray-700" />
+                    <span className="ml-1.5 sm:ml-2 text-[0.65rem] sm:text-xs text-gray-700 font-medium line-clamp-2 text-center">
                         {title ? title : "Precision Engineering for Industrial Excellence"}
                     </span>
                 </div>
                 {/* box outter circle */}
-                <div className="absolute -bottom-12 z-30 grid h-[100px] w-[100px] place-items-center rounded-full border-2 border-gray-300 bg-white font-semibold text-sm text-gray-900 shadow-md overflow-hidden p-2">
+                <div className="absolute -bottom-10 sm:-bottom-12 z-30 grid h-[80px] w-[80px] sm:h-[100px] sm:w-[100px] place-items-center rounded-full border-2 border-gray-300 bg-white font-semibold text-xs sm:text-sm text-gray-900 shadow-md overflow-hidden p-2">
                     {circleLogo ? (
                         <img src={circleLogo} alt="Company Logo" className="w-full h-full object-contain" />
                     ) : (
@@ -264,40 +265,40 @@ const DatabaseWithRestApi = ({
                     )}
                 </div>
                 {/* box content */}
-                <div className="relative z-10 flex h-[150px] w-full items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md mt-4">
+                <div className="relative z-10 flex h-[130px] sm:h-[150px] w-full items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md mt-4">
                     {/* Badges */}
-                    <div className="absolute bottom-8 left-12 z-10 h-7 rounded-full bg-white px-3 text-xs border border-gray-300 flex items-center gap-2 shadow-sm">
-                        <HeartHandshakeIcon className="size-4 text-gray-700" />
-                        <span className="text-gray-900 font-medium">{buttonTexts?.first || "CHK Bearings"}</span>
+                    <div className="absolute bottom-6 sm:bottom-8 left-4 sm:left-12 z-10 h-6 sm:h-7 rounded-full bg-white px-2 sm:px-3 text-[0.65rem] sm:text-xs border border-gray-300 flex items-center gap-1 sm:gap-2 shadow-sm">
+                        <HeartHandshakeIcon className="size-3 sm:size-4 text-gray-700 flex-shrink-0" />
+                        <span className="text-gray-900 font-medium whitespace-nowrap">{buttonTexts?.first || "CHK Bearings"}</span>
                     </div>
-                    <div className="absolute right-16 z-10 hidden h-7 rounded-full bg-white px-3 text-xs sm:flex border border-gray-300 items-center gap-2 shadow-sm">
-                        <Folder className="size-4 text-gray-700" />
-                        <span className="text-gray-900 font-medium">{buttonTexts?.second || "Engineering"}</span>
+                    <div className="absolute bottom-6 sm:bottom-8 right-4 sm:right-16 z-10 hidden sm:flex h-6 sm:h-7 rounded-full bg-white px-2 sm:px-3 text-[0.65rem] sm:text-xs border border-gray-300 items-center gap-1 sm:gap-2 shadow-sm">
+                        <Folder className="size-3 sm:size-4 text-gray-700 flex-shrink-0" />
+                        <span className="text-gray-900 font-medium whitespace-nowrap">{buttonTexts?.second || "Engineering"}</span>
                     </div>
                     {/* Circles */}
                     <motion.div
-                        className="absolute -bottom-14 h-[100px] w-[100px] rounded-full border-t border-gray-300 bg-gray-50/30"
+                        className="absolute -bottom-12 sm:-bottom-14 h-[80px] sm:h-[100px] w-[80px] sm:w-[100px] rounded-full border-t border-gray-300 bg-gray-50/30"
                         animate={{
                             scale: [0.98, 1.02, 0.98, 1, 1, 1, 1, 1, 1],
                         }}
                         transition={{ duration: 2, repeat: Infinity }}
                     />
                     <motion.div
-                        className="absolute -bottom-20 h-[145px] w-[145px] rounded-full border-t border-gray-300 bg-gray-50/30"
+                        className="absolute -bottom-16 sm:-bottom-20 h-[120px] sm:h-[145px] w-[120px] sm:w-[145px] rounded-full border-t border-gray-300 bg-gray-50/30"
                         animate={{
                             scale: [1, 1, 1, 0.98, 1.02, 0.98, 1, 1, 1],
                         }}
                         transition={{ duration: 2, repeat: Infinity }}
                     />
                     <motion.div
-                        className="absolute -bottom-[100px] h-[190px] w-[190px] rounded-full border-t border-gray-300 bg-gray-50/30"
+                        className="absolute -bottom-[80px] sm:-bottom-[100px] h-[160px] sm:h-[190px] w-[160px] sm:w-[190px] rounded-full border-t border-gray-300 bg-gray-50/30"
                         animate={{
                             scale: [1, 1, 1, 1, 1, 0.98, 1.02, 0.98, 1, 1],
                         }}
                         transition={{ duration: 2, repeat: Infinity }}
                     />
                     <motion.div
-                        className="absolute -bottom-[120px] h-[235px] w-[235px] rounded-full border-t border-gray-300 bg-gray-50/30"
+                        className="absolute -bottom-[100px] sm:-bottom-[120px] h-[200px] sm:h-[235px] w-[200px] sm:w-[235px] rounded-full border-t border-gray-300 bg-gray-50/30"
                         animate={{
                             scale: [1, 1, 1, 1, 1, 1, 0.98, 1.02, 0.98, 1],
                         }}

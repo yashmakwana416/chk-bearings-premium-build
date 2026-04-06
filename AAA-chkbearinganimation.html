@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHK Bearings - Driven by Trust</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --chk-orange: #E8641A;
+    --chk-blue:   #1E3C82;
+    --chk-blue-mid: #2B4FA8;
+    --chk-blue-light: #3D6ACC;
+    --white: #FFFFFF;
+    --off-white: #F7F7F5;
+    --stroke: 1.5px;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: var(--white);
+    font-family: 'Barlow', sans-serif;
+  }
+
+  /* ─── HERO ───────────────────────────────────────────── */
+  .hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  /* subtle diagonal rule */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(107deg,
+        var(--white) 52%,
+        #F0F3FA 52%);
+    z-index: 0;
+  }
+
+  /* ─── LEFT CONTENT ───────────────────────────────────── */
+  .content {
+    position: relative;
+    z-index: 2;
+    width: 46%;
+    padding-left: clamp(3rem, 7vw, 8rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--chk-orange);
+    margin-bottom: 1.4rem;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.8s 0.2s ease forwards;
+  }
+
+  .headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(3.2rem, 5.5vw, 5.4rem);
+    font-weight: 700;
+    line-height: 0.95;
+    color: var(--chk-blue);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: fadeUp 0.9s 0.38s ease forwards;
+  }
+
+  .headline em {
+    font-style: normal;
+    color: var(--chk-orange);
+  }
+
+  .sub {
+    font-size: clamp(0.85rem, 1.1vw, 1rem);
+    font-weight: 300;
+    line-height: 1.7;
+    color: #5A6480;
+    max-width: 34ch;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fadeUp 0.9s 0.55s ease forwards;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fadeUp 0.9s 0.72s ease forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--chk-blue);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.25s, transform 0.2s;
+  }
+  .btn-primary:hover { background: var(--chk-blue-mid); transform: translateY(-1px); }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--chk-blue);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.6rem;
+    border: 1.5px solid var(--chk-blue);
+    cursor: pointer;
+    transition: background 0.25s, color 0.25s;
+  }
+  .btn-ghost:hover { background: var(--chk-blue); color: #fff; }
+
+  /* ─── RIGHT VISUAL ───────────────────────────────────── */
+  .visual {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 58%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bearing-wrap {
+    position: relative;
+    width: min(58vw, 72vh);
+    height: min(58vw, 72vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: scaleIn 1.1s 0.15s cubic-bezier(0.22,1,0.36,1) forwards;
+  }
+
+  /* shadow disk */
+  .bearing-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: -4%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 55%;
+    height: 6%;
+    background: radial-gradient(ellipse, rgba(30,60,130,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* ── Outer ring rotates slowly ── */
+  .ring-outer {
+    will-change: transform;
+    transform-origin: center center;
+    animation: spinSlow 28s linear infinite;
+  }
+
+  /* ── Cage rotates medium ── */
+  .ring-cage {
+    will-change: transform;
+    transform-origin: center center;
+    animation: spinSlow 18s linear infinite reverse;
+  }
+
+  /* ── Inner ring counter-rotates ── */
+  .ring-inner {
+    will-change: transform;
+    transform-origin: center center;
+    animation: spinSlow 40s linear infinite;
+  }
+
+  @keyframes spinSlow {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.88); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  /* ─── LOGO LOCKUP ────────────────────────────────────── */
+  .logo {
+    position: absolute;
+    top: clamp(1.4rem, 3vh, 2.4rem);
+    left: clamp(3rem, 7vw, 8rem);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.05s ease forwards;
+  }
+
+  .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .logo-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--chk-blue);
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .logo-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    color: var(--chk-blue-light);
+    text-transform: uppercase;
+    padding-left: 2px;
+  }
+
+  /* ─── STAT STRIP ─────────────────────────────────────── */
+  .stats {
+    position: absolute;
+    bottom: clamp(1.8rem, 4vh, 3rem);
+    left: clamp(3rem, 7vw, 8rem);
+    display: flex;
+    gap: 3rem;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.9s ease forwards;
+  }
+
+  .stat { display: flex; flex-direction: column; gap: 0.2rem; }
+
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
+    font-weight: 700;
+    color: var(--chk-blue);
+    line-height: 1;
+  }
+
+  .stat-num span { color: var(--chk-orange); }
+
+  .stat-label {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #8A94B0;
+  }
+
+  /* ─── VERTICAL NAV ───────────────────────────────────── */
+  .v-nav {
+    position: absolute;
+    right: 2.4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    z-index: 20;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.1s ease forwards;
+  }
+
+  .v-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #C8D0E0;
+    transition: background 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+  .v-dot.active { background: var(--chk-orange); transform: scale(1.5); }
+
+  /* ─── SCROLL HINT ────────────────────────────────────── */
+  .scroll-hint {
+    position: absolute;
+    bottom: clamp(1.8rem, 4vh, 3rem);
+    right: 4.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.2s ease forwards;
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--chk-blue-light));
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: var(--chk-orange);
+    animation: scanLine 2.4s ease-in-out 1.5s infinite;
+  }
+  @keyframes scanLine {
+    0%   { left: -100%; }
+    50%  { left: 0%; }
+    100% { left: 100%; }
+  }
+
+  .scroll-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #8A94B0;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+
+  <!-- LEFT CONTENT -->
+  <div class="content">
+    <div class="eyebrow">Precision Engineering Since 1988</div>
+      <h1 class="headline">
+  Built to <em>Last.</em><br>
+  Made to Perform.
+</h1>
+
+    <p class="sub">
+      Premium bearings engineered for the harshest conditions -
+      where tolerance is measured in microns and failure isn't an option.
+    </p>
+    <div class="cta-row">
+      <button class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Explore Catalogue
+      </button>
+      <button class="btn-ghost">
+        Technical Specs
+      </button>
+    </div>
+  </div>
+
+  <!-- RIGHT VISUAL -->
+  <div class="visual">
+    <div class="bearing-wrap">
+      <svg
+        viewBox="0 0 500 500"
+        xmlns="http://www.w3.org/2000/svg"
+        width="100%" height="100%"
+        style="overflow:visible"
+      >
+        <defs>
+          <!-- outer ring gradient -->
+          <linearGradient id="gOuter" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#1E3C82" stop-opacity="1"/>
+            <stop offset="50%"  stop-color="#2B4FA8"/>
+            <stop offset="100%" stop-color="#0F2255"/>
+          </linearGradient>
+
+          <!-- cage gradient -->
+          <linearGradient id="gCage" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#E8641A"/>
+            <stop offset="100%" stop-color="#C44D0A"/>
+          </linearGradient>
+
+          <!-- inner ring -->
+          <linearGradient id="gInner" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="#2B4FA8"/>
+            <stop offset="100%" stop-color="#1A2E66"/>
+          </linearGradient>
+
+          <!-- ball sheen -->
+          <radialGradient id="gBall" cx="35%" cy="30%" r="60%">
+            <stop offset="0%"   stop-color="#ffffff" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#E8641A" stop-opacity="1"/>
+          </radialGradient>
+
+          <!-- soft drop shadow filter -->
+          <filter id="fShadow" x="-8%" y="-8%" width="116%" height="116%">
+            <feDropShadow dx="0" dy="8" stdDeviation="18" flood-color="#1E3C82" flood-opacity="0.15"/>
+          </filter>
+
+          <!-- subtle inner-ring shadow -->
+          <filter id="fInner" x="-5%" y="-5%" width="110%" height="110%">
+            <feDropShadow dx="0" dy="3" stdDeviation="8" flood-color="#1E3C82" flood-opacity="0.2"/>
+          </filter>
+
+          <!-- ball glow -->
+          <filter id="fBall" x="-20%" y="-20%" width="140%" height="140%">
+            <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#E8641A" flood-opacity="0.35"/>
+          </filter>
+        </defs>
+
+        <!-- ── OUTER RING (rotates) ── -->
+        <g class="ring-outer" filter="url(#fShadow)">
+          <!-- outer body annulus -->
+          <circle cx="250" cy="250" r="220" fill="url(#gOuter)" stroke="none"/>
+          <circle cx="250" cy="250" r="185" fill="white" stroke="none"/>
+
+          <!-- precision notches on outer rim -->
+          <g stroke="#FFFFFF" stroke-width="1" opacity="0.18">
+            <!-- 48 tick marks around outer rim at r=210 -->
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(0   250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(7.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(15  250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(22.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(30  250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(37.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(45  250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(52.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(60  250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(67.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(75  250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(82.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(90  250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(97.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(105 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(112.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(120 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(127.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(135 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(142.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(150 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(157.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(165 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(172.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(180 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(187.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(195 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(202.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(210 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(217.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(225 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(232.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(240 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(247.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(255 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(262.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(270 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(277.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(285 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(292.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(300 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(307.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(315 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(322.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(330 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(337.5 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="44"  transform="rotate(345 250 250)"/>
+            <line x1="250" y1="32"  x2="250" y2="38"  transform="rotate(352.5 250 250)"/>
+          </g>
+          <!-- inner edge highlight on outer ring -->
+          <circle cx="250" cy="250" r="185" fill="none" stroke="#3D6ACC" stroke-width="1.2" opacity="0.4"/>
+          <circle cx="250" cy="250" r="218" fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.12"/>
+        </g>
+
+        <!-- ── RACEWAY TRACK (static) ── -->
+        <circle cx="250" cy="250" r="183" fill="none" stroke="#E2E8F4" stroke-width="0.8"/>
+        <circle cx="250" cy="250" r="147" fill="none" stroke="#E2E8F4" stroke-width="0.8"/>
+
+        <!-- ── BALLS + CAGE (rotate together at medium speed) ── -->
+        <g class="ring-cage">
+          <!-- 10 rolling elements at r=165 -->
+          <!-- ball at each 36° increment -->
+          <g filter="url(#fBall)">
+            <circle cx="250" cy="85"  r="18" fill="url(#gBall)" transform="rotate(0   250 250)"/>
+            <circle cx="250" cy="85"  r="18" fill="url(#gBall)" transform="rotate(36  250 250)"/>
+            <circle cx="250" cy="85"  r="18" fill="url(#gBall)" transform="rotate(72  250 250)"/>
+            <circle cx="250" cy="85"  r="18" fill="url(#gBall)" transform="rotate(108 250 250)"/>
+            <circle cx="250" cy="85"  r="18" fill="url(#gBall)" transform="rotate(144 250 250)"/>
+            <circle cx="250" cy="85"  r="18" fill="url(#gBall)" transform="rotate(180 250 250)"/>
+            <circle cx="250" cy="85"  r="18" fill="url(#gBall)" transform="rotate(216 250 250)"/>
+            <circle cx="250" cy="85"  r="18" fill="url(#gBall)" transform="rotate(252 250 250)"/>
+            <circle cx="250" cy="85"  r="18" fill="url(#gBall)" transform="rotate(288 250 250)"/>
+            <circle cx="250" cy="85"  r="18" fill="url(#gBall)" transform="rotate(324 250 250)"/>
+          </g>
+
+          <!-- cage ring outer -->
+          <circle cx="250" cy="250" r="168"
+            fill="none"
+            stroke="url(#gCage)"
+            stroke-width="5"
+            stroke-dasharray="16 10.5"
+            stroke-linecap="round"
+            opacity="0.7"
+          />
+          <!-- cage ring inner -->
+          <circle cx="250" cy="250" r="148"
+            fill="none"
+            stroke="url(#gCage)"
+            stroke-width="3"
+            stroke-dasharray="14 12"
+            stroke-linecap="round"
+            opacity="0.5"
+          />
+          <!-- cage pockets (arcs around each ball) -->
+          <g fill="none" stroke="#E8641A" stroke-width="2.4" opacity="0.5">
+            <circle cx="250" cy="85" r="21" transform="rotate(0   250 250)"/>
+            <circle cx="250" cy="85" r="21" transform="rotate(36  250 250)"/>
+            <circle cx="250" cy="85" r="21" transform="rotate(72  250 250)"/>
+            <circle cx="250" cy="85" r="21" transform="rotate(108 250 250)"/>
+            <circle cx="250" cy="85" r="21" transform="rotate(144 250 250)"/>
+            <circle cx="250" cy="85" r="21" transform="rotate(180 250 250)"/>
+            <circle cx="250" cy="85" r="21" transform="rotate(216 250 250)"/>
+            <circle cx="250" cy="85" r="21" transform="rotate(252 250 250)"/>
+            <circle cx="250" cy="85" r="21" transform="rotate(288 250 250)"/>
+            <circle cx="250" cy="85" r="21" transform="rotate(324 250 250)"/>
+          </g>
+        </g>
+
+        <!-- ── INNER RING (rotates slowly) ── -->
+        <g class="ring-inner" filter="url(#fInner)">
+          <circle cx="250" cy="250" r="143" fill="url(#gInner)"/>
+          <circle cx="250" cy="250" r="105" fill="white"/>
+
+          <!-- inner ring surface detail -->
+          <circle cx="250" cy="250" r="143" fill="none" stroke="#3D6ACC" stroke-width="1.2" opacity="0.35"/>
+          <circle cx="250" cy="250" r="105" fill="none" stroke="#2B4FA8" stroke-width="0.8" opacity="0.3"/>
+
+          <!-- fine radial lines on inner ring -->
+          <g stroke="#FFFFFF" stroke-width="0.7" opacity="0.1">
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(0   250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(15  250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(30  250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(45  250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(60  250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(75  250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(90  250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(105 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(120 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(135 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(150 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(165 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(180 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(195 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(210 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(225 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(240 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(255 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(270 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(285 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(300 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(315 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="119" transform="rotate(330 250 250)"/>
+            <line x1="250" y1="109" x2="250" y2="113" transform="rotate(345 250 250)"/>
+          </g>
+        </g>
+
+        <!-- ── BORE (static, always visible) ── -->
+        <circle cx="250" cy="250" r="103" fill="white"/>
+
+        <!-- bore inner ring line -->
+        <circle cx="250" cy="250" r="100" fill="none" stroke="#E2E8F4" stroke-width="1.6"/>
+        <!-- bore chamfer hint -->
+        <circle cx="250" cy="250" r="96"  fill="none" stroke="#EDF0F7" stroke-width="0.8"/>
+
+        <!-- center marker -->
+        <circle cx="250" cy="250" r="4"  fill="#1E3C82" opacity="0.35"/>
+        <circle cx="250" cy="250" r="1.5" fill="#1E3C82" opacity="0.6"/>
+
+        <!-- ── PRECISION CROSS-HAIRS (static) ── -->
+        <g stroke="#1E3C82" stroke-width="0.6" opacity="0.08">
+          <line x1="250" y1="154" x2="250" y2="346"/>
+          <line x1="154" y1="250" x2="346" y2="250"/>
+          <circle cx="250" cy="250" r="50" fill="none" stroke-dasharray="3 4"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- STATS STRIP -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">40<span>+</span></div>
+      <div class="stat-label">Years of precision</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1200<span>+</span></div>
+      <div class="stat-label">SKU variants</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0.5<span>µm</span></div>
+      <div class="stat-label">Tolerance class</div>
+    </div>
+  </div>
+
+  <!-- SCROLL HINT -->
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    <div class="scroll-text">Scroll</div>
+  </div>
+
+</section>
+
+</body>
+</html>

@@ -40,7 +40,6 @@ function PerformanceComparisonCard() {
                         ? 'bg-green-100 text-green-700'
                         : 'bg-red-100 text-red-700'
                         }`}
-                    style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                 >
                     {isHovered ? 'With CHK Bearings' : 'Before CHK Bearings'}
                 </span>
@@ -54,10 +53,10 @@ function PerformanceComparisonCard() {
                     />
                 </CardVisual>
                 <CardBody>
-                    <CardTitle style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
+                    <CardTitle>
                         {isHovered ? 'Superior Performance' : 'Standard Performance'}
                     </CardTitle>
-                    <CardDescription style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
+                    <CardDescription>
                         {isHovered
                             ? 'Maximum efficiency, minimal maintenance, extended lifespan, reduced total cost of ownership.'
                             : 'Lower efficiency, frequent maintenance required, shorter bearing lifespan, higher operational costs.'}
@@ -78,7 +77,6 @@ export function About() {
                     <div className="text-center mb-6">
                         <h1
                             className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             About CHK Bearings
                         </h1>
@@ -106,7 +104,7 @@ export function About() {
                     {/* Scroll Down Indicator */}
                     <div className="text-center">
                         <div className="flex flex-col items-center gap-2">
-                            <span className="text-sm text-gray-600 font-medium" style={{ fontFamily: 'TestDomaineDisplay, serif' }}>
+                            <span className="text-sm text-gray-600 font-medium">
                                 Scroll down
                             </span>
                             <ChevronDown className="w-6 h-6 text-gray-600" />
@@ -127,7 +125,7 @@ export function About() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
                         <Card className="bg-white border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                             <CardContent className="p-8">
                                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
@@ -165,13 +163,11 @@ export function About() {
                     <div className="text-center mb-12 lg:mb-16">
                         <h2
                             className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 md:mb-6"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             The CHK Performance Difference
                         </h2>
                         <p
                             className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
-                            style={{ fontFamily: 'TestDomaineDisplay, serif' }}
                         >
                             Hover over the card to see the dramatic improvement in operational efficiency and performance
                             when you choose CHK Bearings.
@@ -194,7 +190,7 @@ export function About() {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                         {coreValues.map((value) => (
                             <Card key={value.title} className="bg-white border-gray-100 shadow-sm hover:shadow-md transition-shadow text-center">
                                 <CardContent className="p-8">
@@ -217,3 +213,4 @@ export function About() {
         </div>
     );
 }
+

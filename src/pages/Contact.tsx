@@ -51,16 +51,16 @@ export function Contact() {
                     {/* Eyebrow */}
                     <div className="flex items-center justify-center gap-3 mb-6">
                         <div className="h-px w-12 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
-                        <span className="font-['TestDomaineDisplay'] text-[13px] font-medium tracking-[0.08em] text-gray-500 uppercase">
+                        <span className="text-[13px] font-medium tracking-[0.08em] text-gray-500 uppercase">
                             Contact Us
                         </span>
                         <div className="h-px w-12 bg-gradient-to-r from-transparent via-primary/60 to-transparent"></div>
                     </div>
 
-                    <h1 className="font-['TestDomaineDisplay'] text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 mb-4 leading-tight">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-900 mb-4 leading-tight">
                         Get in Touch
                     </h1>
-                    <p className="font-['TestDomaineDisplay'] text-[17px] md:text-[19px] text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-[17px] md:text-[19px] text-gray-600 max-w-2xl mx-auto leading-relaxed">
                         We're here to help with your bearing needs. Reach out to our team for inquiries, quotes, or technical support.
                     </p>
                 </div>
@@ -69,17 +69,17 @@ export function Contact() {
             {/* Contact Form & Info Section */}
             <section className="py-12 md:py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10">
 
                         {/* Contact Form */}
-                        <div className="bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-sm border border-gray-100 p-6 md:p-8 md:p-10">
-                            <h2 className="font-['TestDomaineDisplay'] text-2xl md:text-3xl font-semibold text-gray-900 mb-6">
+                        <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 p-5 sm:p-8 md:p-10">
+                            <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-6">
                                 Send Us a Message
                             </h2>
 
                             <form onSubmit={handleSubmit} className="space-y-6">
                                 <div>
-                                    <label htmlFor="fullName" className="font-['TestDomaineDisplay'] block text-[15px] font-medium text-gray-700 mb-2">
+                                    <label htmlFor="fullName" className="block text-[15px] font-medium text-gray-700 mb-2">
                                         Full Name
                                     </label>
                                     <input
@@ -90,12 +90,12 @@ export function Contact() {
                                         value={formData.fullName}
                                         onChange={handleChange}
                                         required
-                                        className="font-['TestDomaineDisplay'] w-full px-4 py-3 border border-gray-200 rounded-2xl text-[15px] text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                                        className="w-full px-4 py-3 border border-gray-200 rounded-2xl text-[15px] text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="email" className="font-['TestDomaineDisplay'] block text-[15px] font-medium text-gray-700 mb-2">
+                                    <label htmlFor="email" className="block text-[15px] font-medium text-gray-700 mb-2">
                                         Email Address
                                     </label>
                                     <input
@@ -106,12 +106,12 @@ export function Contact() {
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
-                                        className="font-['TestDomaineDisplay'] w-full px-4 py-3 border border-gray-200 rounded-2xl text-[15px] text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                                        className="w-full px-4 py-3 border border-gray-200 rounded-2xl text-[15px] text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="company" className="font-['TestDomaineDisplay'] block text-[15px] font-medium text-gray-700 mb-2">
+                                    <label htmlFor="company" className="block text-[15px] font-medium text-gray-700 mb-2">
                                         Company Name <span className="text-gray-400">(Optional)</span>
                                     </label>
                                     <input
@@ -121,12 +121,12 @@ export function Contact() {
                                         placeholder="Your Company Inc."
                                         value={formData.company}
                                         onChange={handleChange}
-                                        className="font-['TestDomaineDisplay'] w-full px-4 py-3 border border-gray-200 rounded-2xl text-[15px] text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                                        className="w-full px-4 py-3 border border-gray-200 rounded-2xl text-[15px] text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="font-['TestDomaineDisplay'] block text-[15px] font-medium text-gray-700 mb-2">
+                                    <label htmlFor="message" className="block text-[15px] font-medium text-gray-700 mb-2">
                                         Message
                                     </label>
                                     <textarea
@@ -137,13 +137,13 @@ export function Contact() {
                                         onChange={handleChange}
                                         required
                                         rows={4}
-                                        className="font-['TestDomaineDisplay'] w-full px-4 py-3 border border-gray-200 rounded-2xl text-[15px] text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
+                                        className="w-full px-4 py-3 border border-gray-200 rounded-2xl text-[15px] text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none"
                                     />
                                 </div>
 
                                 <Button
                                     type="submit"
-                                    className="w-full bg-primary text-white px-8 py-4 rounded-full font-['TestDomaineDisplay'] font-semibold text-[15px] hover:bg-blue-600 transition-all duration-300 hover:shadow-lg shadow-primary/20 h-auto"
+                                    className="w-full bg-primary text-white px-8 py-4 rounded-full font-semibold text-[15px] hover:bg-blue-600 transition-all duration-300 hover:shadow-lg shadow-primary/20 h-auto"
                                 >
                                     <Send className="w-5 h-5 mr-2" />
                                     Send Message
@@ -155,7 +155,7 @@ export function Contact() {
                         <div className="space-y-6">
                             {/* Quick Contact */}
                             <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8">
-                                <h2 className="font-['TestDomaineDisplay'] text-2xl font-semibold text-gray-900 mb-6">
+                                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                                     Quick Contact
                                 </h2>
 
@@ -165,8 +165,8 @@ export function Contact() {
                                             <Mail className="w-5 h-5 text-primary" />
                                         </div>
                                         <div>
-                                            <h3 className="font-['TestDomaineDisplay'] font-semibold text-gray-900 mb-1">Email</h3>
-                                            <a href="mailto:contact@chkbearings.com" className="font-['TestDomaineDisplay'] text-[15px] text-primary hover:underline">
+                                            <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                                            <a href="mailto:contact@chkbearings.com" className="text-[15px] text-primary hover:underline">
                                                 contact@chkbearings.com
                                             </a>
                                         </div>
@@ -177,8 +177,8 @@ export function Contact() {
                                             <Phone className="w-5 h-5 text-primary" />
                                         </div>
                                         <div>
-                                            <h3 className="font-['TestDomaineDisplay'] font-semibold text-gray-900 mb-1">Phone</h3>
-                                            <a href="tel:+919876543210" className="font-['TestDomaineDisplay'] text-[15px] text-primary hover:underline">
+                                            <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                                            <a href="tel:+919876543210" className="text-[15px] text-primary hover:underline">
                                                 +91 98765 43210
                                             </a>
                                         </div>
@@ -189,8 +189,8 @@ export function Contact() {
                                             <Clock className="w-5 h-5 text-primary" />
                                         </div>
                                         <div>
-                                            <h3 className="font-['TestDomaineDisplay'] font-semibold text-gray-900 mb-1">Business Hours</h3>
-                                            <p className="font-['TestDomaineDisplay'] text-[15px] text-gray-600">
+                                            <h3 className="font-semibold text-gray-900 mb-1">Business Hours</h3>
+                                            <p className="text-[15px] text-gray-600">
                                                 Mon-Sat: 9:00 AM - 7:00 PM
                                             </p>
                                         </div>
@@ -200,7 +200,7 @@ export function Contact() {
 
                             {/* Office Locations */}
                             <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8">
-                                <h2 className="font-['TestDomaineDisplay'] text-2xl font-semibold text-gray-900 mb-6">
+                                <h2 className="text-2xl font-semibold text-gray-900 mb-6">
                                     Our Offices
                                 </h2>
 
@@ -210,19 +210,19 @@ export function Contact() {
                                             <div className="flex items-start gap-3 mb-3">
                                                 <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                                                 <div>
-                                                    <h3 className="font-['TestDomaineDisplay'] font-semibold text-gray-900 mb-1">
+                                                    <h3 className="font-semibold text-gray-900 mb-1">
                                                         {office.city}
                                                     </h3>
-                                                    <p className="font-['TestDomaineDisplay'] text-[14px] text-gray-600">
+                                                    <p className="text-[14px] text-gray-600">
                                                         {office.address}
                                                     </p>
                                                 </div>
                                             </div>
                                             <div className="ml-8 space-y-1">
-                                                <a href={`mailto:${office.email}`} className="font-['TestDomaineDisplay'] text-[14px] text-primary hover:underline block">
+                                                <a href={`mailto:${office.email}`} className="text-[14px] text-primary hover:underline block">
                                                     {office.email}
                                                 </a>
-                                                <a href={`tel:${office.phone}`} className="font-['TestDomaineDisplay'] text-[14px] text-primary hover:underline block">
+                                                <a href={`tel:${office.phone}`} className="text-[14px] text-primary hover:underline block">
                                                     {office.phone}
                                                 </a>
                                             </div>
@@ -237,3 +237,4 @@ export function Contact() {
         </div>
     );
 }
+

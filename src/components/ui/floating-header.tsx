@@ -54,33 +54,34 @@ export function FloatingHeader() {
 
                     {/* Desktop Menu */}
                     <div className="hidden items-center gap-1 lg:flex">
-                        {links.map((link) => (
-                            <Link
-                                key={link.href}
-                                to={link.href}
-                                className={cn(
-                                    buttonVariants({ variant: 'ghost', size: 'sm' }),
-                                    isHome && !isScrolled && !open ? "text-white hover:bg-white/10 hover:text-white" : "text-gray-700 hover:bg-gray-100"
-                                )}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
+                        {links.map((link) => {
+                            const isActive = location.pathname === link.href ||
+                                (link.href !== '/' && location.pathname.startsWith(link.href));
+                            return (
+                                <Link
+                                    key={link.href}
+                                    to={link.href}
+                                    className={cn(
+                                        buttonVariants({ variant: 'ghost', size: 'sm' }),
+                                        "relative text-gray-700 hover:bg-transparent hover:text-[#1E3C82]",
+                                        isActive && "text-[#1E3C82] font-semibold"
+                                    )}
+                                >
+                                    {link.label}
+                                    <span className={cn(
+                                        "absolute bottom-1 left-3 right-3 h-[2px] bg-[#E8641A] rounded-full transition-transform duration-300 origin-left",
+                                        isActive ? "scale-x-100" : "scale-x-0"
+                                    )} />
+                                </Link>
+                            );
+                        })}
                     </div>
 
                     <div className="flex items-center gap-2">
-                        <Link to="/quote">
-                            <Button
-                                size="sm"
-                                className={cn(
-                                    "hidden sm:flex transition-all duration-300 rounded-full px-8 h-10 font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer",
-                                    isHome && !isScrolled && !open
-                                        ? "bg-white text-gray-900 hover:bg-gray-100 border-2 border-white/20"
-                                        : "bg-gradient-to-r from-gray-900 to-gray-800 text-white hover:from-gray-800 hover:to-gray-700 border-none"
-                                )}
-                            >
+                        <Link to="/quote" className="hidden md:block">
+                            <button className="chk-quote-btn">
                                 Get a Quote
-                            </Button>
+                            </button>
                         </Link>
 
                         {/* Mobile Menu Toggle */}
@@ -90,7 +91,7 @@ export function FloatingHeader() {
                             onClick={() => setOpen(!open)}
                             className={cn(
                                 "lg:hidden cursor-pointer",
-                                isHome && !isScrolled && !open ? "text-white hover:bg-white/10" : "text-gray-900 hover:bg-gray-100"
+                                "text-gray-900 hover:bg-gray-100"
                             )}
                         >
                             {open ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -109,15 +110,23 @@ export function FloatingHeader() {
                             className="lg:hidden border-t border-gray-100 overflow-hidden"
                         >
                             <div className="p-4 flex flex-col gap-2">
-                                {links.map((link) => (
-                                    <Link
-                                        key={link.href}
-                                        to={link.href}
-                                        className="flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors cursor-pointer"
-                                    >
-                                        {link.label}
-                                    </Link>
-                                ))}
+                                {links.map((link) => {
+                                    const isActive = location.pathname === link.href ||
+                                        (link.href !== '/' && location.pathname.startsWith(link.href));
+                                    return (
+                                        <Link
+                                            key={link.href}
+                                            to={link.href}
+                                            className={cn(
+                                                "flex items-center gap-2 px-4 py-3 rounded-xl text-sm transition-colors cursor-pointer",
+                                                isActive ? "font-semibold text-[#1E3C82]" : "font-medium text-gray-700 hover:bg-gray-50 hover:text-primary"
+                                            )}
+                                        >
+                                            {isActive && <span className="w-1 h-1 rounded-full bg-[#E8641A] shrink-0" />}
+                                            {link.label}
+                                        </Link>
+                                    );
+                                })}
                                 <div className="pt-2 mt-2 border-t border-gray-100">
                                     <Button
                                         asChild
@@ -134,6 +143,75 @@ export function FloatingHeader() {
                     )}
                 </AnimatePresence>
             </div>
-        </header>
+          <style>{`
+        .chk-quote-btn {
+          display: inline-flex;
+          align-items: center;
+          padding: 7px 20px;
+          height: 36px;
+          border: 1.5px solid #1E3C82;
+          border-radius: 9999px;
+          position: relative;
+          overflow: hidden;
+          font-size: 13px;
+          font-weight: 500;
+          cursor: pointer;
+          color: #1E3C82;
+          background: transparent;
+          z-index: 1;
+          transition: color 0.3s ease, border-color 0.3s ease;
+          white-space: nowrap;
+        }
+        @media (min-width: 1024px) {
+          .chk-quote-btn {
+            padding: 8px 28px;
+            height: 40px;
+            font-size: 14px;
+          }
+        }
+        .chk-quote-btn::before {
+          content: "";
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%) scaleY(1) scaleX(1.25);
+          top: 100%;
+          width: 140%;
+          height: 180%;
+          background-color: rgba(30, 60, 130, 0.06);
+          border-radius: 50%;
+          display: block;
+          transition: all 0.5s 0.08s cubic-bezier(0.55, 0, 0.1, 1);
+          z-index: -1;
+        }
+        .chk-quote-btn::after {
+          content: "";
+          position: absolute;
+          left: 55%;
+          transform: translateX(-50%) scaleY(1) scaleX(1.45);
+          top: 180%;
+          width: 160%;
+          height: 190%;
+          background-color: #1E3C82;
+          border-radius: 50%;
+          display: block;
+          transition: all 0.5s 0.08s cubic-bezier(0.55, 0, 0.1, 1);
+          z-index: -1;
+        }
+        .chk-quote-btn:hover {
+          color: #ffffff;
+          border-color: #1E3C82;
+        }
+        .chk-quote-btn:hover::before {
+          top: -35%;
+          background-color: #1E3C82;
+          transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+        }
+        .chk-quote-btn:hover::after {
+          top: -45%;
+          background-color: #1E3C82;
+          transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+        }
+      `}</style>
+    </header>
     );
 }
