@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { products } from './Products';
-import { Send, ChevronDown, Check } from 'lucide-react';
+import { ChevronDown, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
